@@ -1,3 +1,4 @@
+# Library Local
 from dNodo import TreeNode
 #. class what manager the structure treenode        
 class MyTree:
