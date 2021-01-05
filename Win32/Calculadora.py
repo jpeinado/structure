@@ -1,3 +1,8 @@
+'''
+Autor: Juan Carlos Peinado Pereira
+Date: 28/12/2020
+Proyect: Implement of class graphics for win32
+'''
 import tkinter
 from tkinter import *
 #import tkMessageBox

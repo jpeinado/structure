@@ -1,9 +1,10 @@
+# Imports library external for class graphics in win32
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
-
+# Deveplopment of class graphics loginScreen with Kivy framework
 class LoginScreen(GridLayout):
     def __init__(self, **kwargs):
         super(LoginScreen,self).__init__(**kwargs)
