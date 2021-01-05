@@ -1,6 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "/home/jcpeinado/anaconda3/bin/python",
+    "python.pythonPath": "/home/jcpeinado/anaconda3/envs/myenv/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
 }
