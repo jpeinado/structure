@@ -7,6 +7,10 @@ class MyTree:
     ''' Clase MyTree '''   
     def __init__(self, value):
         self.__root = TreeNode(value)
+        self.__Nivel = None
+        self.__Altura = None
+        self.__Amplitud = None
+        self.__Cantidad = None
     ''' Arguments of class MyTree
     Note:
         Esta es una clase que permite manejar nodos jerarquicos
@@ -16,9 +20,9 @@ class MyTree:
 
     '''
     def setRoot(self,link):
-        self.__root = link;
+        self.__root = link
     def getRoot(self):
-        return self.__root;
+        return self.__root
 
 
 #. definition of method of class MyTree
@@ -37,12 +41,12 @@ class MyTree:
                 if(node.getLeft()==None):
                     node.setLeft(TreeNode(value))
                 else:
-                    self.addNode(node.getLeft(), value);
+                    self.addNode(node.getLeft(), value)
             else:
                 if(node.getRight()==None):
                     node.setRight(TreeNode(value))
                 else:
-                    self.addNode(node.getRight(), value);
+                    self.addNode(node.getRight(), value)
                     
 #. Method printing the data of class mytree
    
@@ -51,3 +55,13 @@ class MyTree:
             self.printInorder(node.getLeft())
             print(node.getData())
             self.printInorder(node.getRight())
+    def printPreorder(self, node):
+        if(node!=None):
+            print(node.getData())
+            self.printInorder(node.getLeft())
+            self.printInorder(node.getRight())
+    def printPostorden(self, node):
+        if(node!=None):
+            self.printInorder(node.getLeft())
+            self.printInorder(node.getRight())
+            print(node.getData())

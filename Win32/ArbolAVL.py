@@ -1,11 +1,5 @@
-'''
-Title : implementacion de la estructura de datos arbol AVL
-Autor : Juan Carlos Peinado Pereira
-Version: 1.0
-'''
-# Libreria que maneja una cola la cual sera utilizada en el metodo de recorridos por niveles
-import queue 
-import sys
+import Queue as queue
+
 class Nodo:
     
     def __init__(self, dato):
@@ -51,17 +45,16 @@ class ArbolAVL:
             return 0
         
         else:
-            try:
-                alturaIzquierdo = self.alturaRecursivo(nodo.getHijoIzquierdo())
-                alturaDerecho = self.alturaRecursivo(nodo.getHijoDerecho())
-                
-                if (alturaIzquierdo > alturaDerecho):
-                    return alturaIzquierdo + 1
-                
-                else:
-                    return alturaDerecho + 1
-            except:
-                print("Ocurrio algun error al obtener la altura",sys.exc_info()[0])
+        
+            alturaIzquierdo = self.alturaRecursivo(nodo.getHijoIzquierdo())
+            alturaDerecho = self.alturaRecursivo(nodo.getHijoDerecho())
+            
+            if (alturaIzquierdo > alturaDerecho):
+                return alturaIzquierdo + 1
+            
+            else:
+                return alturaDerecho + 1
+            
             
     def existeDato(self, dato):
         

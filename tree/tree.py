@@ -7,7 +7,7 @@ class BinarySearchTree:
             self.val = val
             self.left = left
             self.right = right
-            
+       
         def getVal(self):
             pdb.set_trace()
             return self.val
