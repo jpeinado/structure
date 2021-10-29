@@ -1,4 +1,5 @@
 import sys 
+import Queue as queue
 class NodoMVias:
 
     def __init__(self, orden, dato):

@@ -1,7 +1,7 @@
 from flask import Flask
 
 from api.routes import api
-from home.routes import site
+from site.routes import site
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config["FLASK_ENV"]='development'
