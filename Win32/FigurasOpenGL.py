@@ -1,34 +1,61 @@
-import glfw
+'''
+title: programa que dibuja un rectangulo y un triangulo usando la libreria OpenGL
+Autor: Juan Carlos Peinado Pereira
+Version : 1.0
+Leguaje : Python
+'''
 from OpenGL.GL import *
-import numpy as np
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
 
-# initializing glfw
-glfw.init()
+window = 0                                             # glut window number
+width, height = 500, 400   
 
-# creating a window with 800 width and 600 height
-window = glfw.create_window(800,600,"PyOpenGL Triangle", None, None)
-glfw.set_window_pos(window,400,200)
-glfw.make_context_current(window)
+def draw_triangle(x, y, width, height):
+    glBegin(GL_TRIANGLE_STRIP)
+    glVertex2f(x,y)
+    glVertex2f(x - width, y - height)
+    glVertex2f(x + width, y - height)
+    glEnd()
 
-vertices = [-0.5, -0.5, 0.0,
-             0.5, -0.5,0.0,
-             0.0, 0.5, 0.0]
+def draw_rect(x, y, width, height):
+    glBegin(GL_QUADS)                                  # start drawing a rectangle
+    glVertex2f(x, y)                                   # bottom left point
+    glVertex2f(x + width, y)                           # bottom right point
+    glVertex2f(x + width, y + height)                  # top right point
+    glVertex2f(x, y + height)                          # top left point
+    glEnd()                                            # done drawing a rectangle                            # window size
 
-v = np.array(vertices,dtype=np.float32)
+def refresh2d(width, height):
+    glViewport(0, 0, width, height)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0.0, width, 0.0, height, 0.0, 1.0)
+    glMatrixMode (GL_MODELVIEW)
+    glLoadIdentity()
 
-# for drawing a colorless triangle
-glEnableClientState(GL_VERTEX_ARRAY)
-glVertexPointer(3, GL_FLOAT,0,v)
+def draw():                                            # ondraw is called all the time
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # clear the screen
+    glLoadIdentity()                                   # reset position
+   
+    # ToDo draw rectangle
+    refresh2d(width, height)                           # set mode to 2d
+    
+    #gluPerspective(45.0, 300, 200)   
+    glScaled(0.3,0.3,0.3)
+    glColor3f(0.0, 2.0, 1.0)                           # set color to blue
+    draw_rect(300, 100, 100, 100)
+    draw_triangle(100,100,200,200)
+   
+    glutSwapBuffers()                                  # important for double buffering
+   
 
-# setting color for background
-glClearColor(0,0,0,0)
-
-while not glfw.window_should_close(window):
-
-glfw.poll_events()
-glClear(GL_COLOR_BUFFER_BIT)
-
-glDrawArrays(GL_TRIANGLES,0,3)
-glfw.swap_buffers(window)
-
-glfw.terminate()
+# initialization
+glutInit()                                             # initialize glut
+glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
+glutInitWindowSize(width, height)                      # set window size
+glutInitWindowPosition(0, 0)                           # set window position
+window = glutCreateWindow("noobtuts.com")              # create window with title
+glutDisplayFunc(draw)                                  # set draw function callback
+glutIdleFunc(draw)                                     # draw all the time
+glutMainLoop()              

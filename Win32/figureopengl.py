@@ -60,6 +60,7 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+        glColor3f(0.0, 2.0, 1.0)        
         glRotatef(1,3,1,1)
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
         cube()
