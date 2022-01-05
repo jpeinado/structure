@@ -42,7 +42,7 @@ def draw():                                            # ondraw is called all th
     refresh2d(width, height)                           # set mode to 2d
     
     #gluPerspective(45.0, 300, 200)   
-    glScaled(2,2,2)                              # set scale factor
+    glScaled(0.3,0.3,0.3)                              # set scale factor
     glColor3f(0.0, 2.0, 1.0)                           # set color to blue
     draw_rect(300, 100, 100, 100)                      # draw rectangle
     draw_triangle(100,100,200,200)                     # draw triangle
@@ -55,7 +55,7 @@ glutInit()                                             # initialize glut
 glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
 glutInitWindowSize(width, height)                      # set window size
 glutInitWindowPosition(0, 0)                           # set window position
-window = glutCreateWindow("my windows of drawing")              # create window with title
+window = glutCreateWindow("noobtuts.com")              # create window with title
 glutDisplayFunc(draw)                                  # set draw function callback
 glutIdleFunc(draw)                                     # draw all the time
 glutMainLoop()              
