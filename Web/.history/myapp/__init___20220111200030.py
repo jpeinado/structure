@@ -15,7 +15,7 @@ app.register_blueprint(admin)
 
 @app.route('/')
 def create_app():
-    return "<p> hola mundo </p>"
+    return render_template('home.html')
     
 if __name__ == '__main__':
     app.run()    

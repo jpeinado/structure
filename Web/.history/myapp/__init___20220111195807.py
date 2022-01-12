@@ -1,5 +1,4 @@
 from flask import Flask
-from flask import Blueprint, render_template
 
 from api.routes import api
 from home.routes import site
@@ -15,7 +14,7 @@ app.register_blueprint(admin)
 
 @app.route('/')
 def create_app():
-    return "<p> hola mundo </p>"
+    return render_template('home.html')
     
 if __name__ == '__main__':
     app.run()    
